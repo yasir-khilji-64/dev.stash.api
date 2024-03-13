@@ -61,27 +61,27 @@ export class Logger {
     return Logger.instance;
   }
 
-  public fatal(message: string, data?: unknown[]): void {
+  public fatal(message: string, ...data: unknown[]): void {
     this.logger.fatal(message, data);
   }
 
-  public error(message: string, data?: unknown[]): void {
+  public error(message: string, ...data: unknown[]): void {
     this.logger.error(message, data);
   }
 
-  public warn(message: string, data?: unknown[]): void {
+  public warn(message: string, ...data: unknown[]): void {
     this.logger.warn(message, data);
   }
 
-  public info(message: string, data?: unknown[]): void {
+  public info(message: string, ...data: unknown[]): void {
     this.logger.info(message, data);
   }
 
-  public debug(message: string, data?: unknown[]): void {
+  public debug(message: string, ...data: unknown[]): void {
     this.logger.debug(message, data);
   }
 
-  public verbose(message: string, data?: unknown[]): void {
+  public verbose(message: string, ...data: unknown[]): void {
     this.logger.trace(message, data);
   }
 }
