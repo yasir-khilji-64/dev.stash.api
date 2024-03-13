@@ -6,6 +6,16 @@ class Config {
   private static configSchema = z.object({
     PORT: z.coerce.number().min(1000).default(3003),
     NODE_ENV: z.enum(['dev', 'test', 'prod']).default('dev'),
+    MONGO_HOST: z.string({ required_error: 'MongoDB host is required' }),
+    MONGO_USERNAME: z.string({
+      required_error: 'MongoDB username is required',
+    }),
+    MONGO_PASSWORD: z.string({
+      required_error: 'MongoDB password is required',
+    }),
+    MONGO_DATABASE: z.string({
+      required_error: 'MongoDB database name is required',
+    }),
   });
   private static configParser: any;
 
