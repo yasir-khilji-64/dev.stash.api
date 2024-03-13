@@ -1,13 +1,13 @@
-import { join } from "path";
-import pino, { Logger as PinoLogger, stdTimeFunctions, transport } from "pino";
+import { join } from 'path';
+import pino, { Logger as PinoLogger, stdTimeFunctions, transport } from 'pino';
 
 export enum LogLevel {
-  Fatal = "fatal",
-  Error = "error",
-  Warn = "warn",
-  Info = "info",
-  Debug = "debug",
-  Verbose = "verbose",
+  Fatal = 'fatal',
+  Error = 'error',
+  Warn = 'warn',
+  Info = 'info',
+  Debug = 'debug',
+  Verbose = 'verbose',
 }
 
 export class Logger {
@@ -19,23 +19,23 @@ export class Logger {
     const transports = transport({
       targets: [
         {
-          target: "pino/file",
+          target: 'pino/file',
           level: LogLevel.Warn,
           options: {
             mkdir: true,
-            destination: join(__dirname, "..", "..", "logs", "error.log"),
+            destination: join(__dirname, '..', '..', 'logs', 'error.log'),
           },
         },
         {
-          target: "pino/file",
+          target: 'pino/file',
           level: Logger.level ?? LogLevel.Error,
           options: {
             mkdir: true,
-            destination: join(__dirname, "..", "..", "logs", "app.log"),
+            destination: join(__dirname, '..', '..', 'logs', 'app.log'),
           },
         },
         {
-          target: "pino-pretty",
+          target: 'pino-pretty',
           level: Logger.level ?? LogLevel.Error,
           options: { colorize: true },
         },
@@ -46,7 +46,7 @@ export class Logger {
       {
         timestamp: stdTimeFunctions.isoTime,
       },
-      transports
+      transports,
     );
   }
 
